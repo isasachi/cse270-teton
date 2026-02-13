@@ -22,7 +22,7 @@ class TestSmokeTests():
     self.driver.quit()
   
   def test_01HomeTitleLogoHeading(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-teton/teton/1.6/index.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     assert self.driver.title == "Teton Idaho CoC"
     elements = self.driver.find_elements(By.CSS_SELECTOR, "header .header-logo img[alt=\"Teton Chamber of Commerce Logo\"]")
     assert len(elements) > 0
@@ -30,7 +30,7 @@ class TestSmokeTests():
     assert self.driver.find_element(By.CSS_SELECTOR, "header .header-title h2").text == "Chamber of Commerce"
   
   def test_02HomeSpotlightsJoinUsLink(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-teton/teton/1.6/index.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1280, 800)
     elements = self.driver.find_elements(By.CSS_SELECTOR, "header nav ul")
     assert len(elements) > 0
@@ -53,7 +53,7 @@ class TestSmokeTests():
     assert len(elements) > 0
   
   def test_03DirectoryGridListTetonTurf(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-teton/teton/1.6/directory.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/directory.html")
     self.driver.set_window_size(1280, 800)
     WebDriverWait(self.driver, 5).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "#directory-grid")))
     self.driver.find_element(By.CSS_SELECTOR, "#directory-grid").click()
@@ -63,7 +63,7 @@ class TestSmokeTests():
     assert self.driver.find_element(By.CSS_SELECTOR, "div#directory-data section:last-child p").text == "Teton Turf and Tree"
   
   def test_04JoinWizardStep1ToStep2(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-teton/teton/1.6/join.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/join.html")
     self.driver.set_window_size(1280, 800)
     elements = self.driver.find_elements(By.CSS_SELECTOR, "input[name=\"fname\"]")
     assert len(elements) > 0
@@ -89,7 +89,7 @@ class TestSmokeTests():
     assert len(elements) > 0
   
   def test_05AdminInvalidLoginShowsError(self):
-    self.driver.get("http://127.0.0.1:5500/cse270-teton/teton/1.6/admin.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
     self.driver.set_window_size(1280, 800)
     elements = self.driver.find_elements(By.CSS_SELECTOR, "input#username")
     assert len(elements) > 0
